@@ -1,0 +1,16 @@
+careers.stackoverflow.com
+	kevin: https://github.com/creekace/jobscraap
+	Nikhil Thomas: https://github.com/nt591/job-board-scraper
+	Rex Feng: https://gist.github.com/b05eb7129f656af0280a
+RubyInside
+	Nikhil Thomas: https://github.com/nt591/job-board-scraper
+RubyNow
+	Nikhil Thomas: https://github.com/nt591/job-board-scraper
+37signals
+	Joseph DeVenuta: https://github.com/jvenator/jobs-scraper
+dice.com
+	Stephen Chen: https://github.com/stephenchen13/job-scraper
+careers.stackoverflow
+
+
+ruby shell
