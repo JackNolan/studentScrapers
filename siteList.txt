@@ -2,6 +2,7 @@ careers.stackoverflow.com
 	kevin: https://github.com/creekace/jobscraap
 	Nikhil Thomas: https://github.com/nt591/job-board-scraper
 	Rex Feng: https://gist.github.com/b05eb7129f656af0280a
+	Aaron Streiter: https://github.com/ams340/ruby_job_scraper
 RubyInside
 	Nikhil Thomas: https://github.com/nt591/job-board-scraper
 RubyNow

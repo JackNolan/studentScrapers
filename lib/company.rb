@@ -23,8 +23,10 @@ class Company
 		@locations << location
 	end
 	def save
-		@@db = db.execute("INSERT INTO companies ( name,locations,jobs)
-					VALUES (?,?,?)", [@name,@locations,@jobs])
+		@@db.execute("INSERT INTO companies ( name)
+					VALUES (?)", [@name])
 	end
-	
+	def id 
+		@@db.execute("SELECT id FROM companies WHERE name = (?)",@name)
+	end
 end

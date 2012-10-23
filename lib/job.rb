@@ -21,10 +21,12 @@ class Job
    		company = Company.new.tap {|e| e.name = comp;e.add_location loc } if !company
    		company.add_job self
    		@company = company
+   		Job.all << self
 	end
 
 	def save
-		db.execute("INSERT INTO jobs (title, location, salary, company, url, description)
-				VALUES (?,?,?,?,?,?)", [@title, @location, @salary, @company, @url, @description])
+		puts "inserting job"
+		@@db.execute("INSERT INTO jobs (title, location, salary, url, description)
+				VALUES (?,?,?,?,?)", [@title, @location, @salary, @url, @description])
 	end
 end
