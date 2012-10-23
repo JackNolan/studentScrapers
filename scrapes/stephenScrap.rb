@@ -1,33 +1,10 @@
-require "rubygems"
-require "nokogiri"
-require "open-uri"
-require "sqlite3"
- 
+
+### functionallity equal to scraper.rb
+require_relative "../lib/require"
 #jobs.rubynow.com
  
 #check if database exists
 #if doesn't exist, create schema
-if !File.exist?("jobs.db")
-    @db = SQLite3::Database.new "jobs.db"
-    @db.execute <<-SQL
-        CREATE TABLE jobs (
-            id INTEGER PRIMARY KEY,
-            title TEXT,
-            job_url TEXT,
-            location TEXT,
-            posted_date TEXT,
-            company_name TEXT,
-            company_site TEXT,
-            description TEXT,
-            type_of_position TEXT,
-            work_hours TEXT,
-            telecommute TEXT,
-            email TEXT
-        );
-    SQL
-else
-    @db = SQLite3::Database.open "jobs.db"
-end
  
 RubyNow = "http://jobs.rubynow.com"
 index = Nokogiri::HTML(open(RubyNow))
@@ -61,7 +38,9 @@ jobs.each do |job|
  
     description.match(/Telecommute:\s*(.+)?\b/)
     telecommute = $1
- 
-    @db.execute("INSERT INTO jobs (title, job_url, location, posted_date, company_name, company_site, description, type_of_position, work_hours, telecommute, email)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [job_title, job_link, location, date_posted, company_name, company_url, description, position_type, work_hours, telecommute, company_email])
+    Job.new(job_title,location,nil,company_name,job_link,description)
+    # @db.execute("INSERT INTO jobs (title, job_url, location, posted_date, company_name, company_site, description, type_of_position, work_hours, telecommute, email)
+    #     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [job_title, job_link, location, date_posted, company_name, company_url, description, position_type, work_hours, telecommute, company_email])
 end
+puts Job.save_all
+puts Company.save_all

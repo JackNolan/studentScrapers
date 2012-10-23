@@ -1,4 +1,4 @@
-require_relative "../lib/require"
+def stackOverFlowScrape
 # @db = SQLite3::Database.new('jobs.db')
 
 # @db.execute "CREATE TABLE jobs (
@@ -69,9 +69,6 @@ job_links.each do |link|
 	# @db.execute("INSERT INTO jobs (job_title, company_name, locations, description, requirements, about)
 	# 	VALUES (?,?,?,?,?,?)", job_title, company_name, locations, description, requirements, about
 end	
-Job.save_all
-Company.save_all
 
-
-
+end
 

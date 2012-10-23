@@ -1,5 +1,5 @@
 class Job
-	@@db = SQLite3::Database.open('masterJob.db')
+	@@db = SQLite3::Database.open('db/masterJob.db')
 
 	def self.count
 		@all_jobs.length
@@ -8,7 +8,9 @@ class Job
 		@all_jobs ||= []
 	end
 	def self.save_all
-		Job.all.each{|e| e.save}
+		Job.all.each{|e| e.id}
+
+		Job.count.to_s + " jobs saved"
 	end
 	attr_accessor :title, :location, :salary, :company, :url, :description
 	def initialize(title,loc,sal,comp,url,desc)
@@ -23,9 +25,16 @@ class Job
    		@company = company
    		Job.all << self
 	end
-
+	def id
+		@id ||= get_id
+	end
+	def get_id
+		puts "_____"
+		@id = @@db.execute("select id from jobs where title = ? and company = ? and url = ?",
+			[@title,@company.id,@url])
+		puts @id 
+	end
 	def save
-		puts "inserting job"
 		@@db.execute("INSERT INTO jobs (title, location, salary, url, description)
 				VALUES (?,?,?,?,?)", [@title, @location, @salary, @url, @description])
 	end
