@@ -69,8 +69,7 @@ job_links.each do |link|
 	# @db.execute("INSERT INTO jobs (job_title, company_name, locations, description, requirements, about)
 	# 	VALUES (?,?,?,?,?,?)", job_title, company_name, locations, description, requirements, about
 end	
-
-Jobs.save_all
+Job.save_all
 Company.save_all
 
 
