@@ -9,7 +9,7 @@ RubyNow X  X
 	Nikhil Thomas: https://github.com/nt591/job-board-scraper
 37signals X 
 	Joseph DeVenuta: https://github.com/jvenator/jobs-scraper
-dice.com 
+dice.com  ??
 	Stephen Chen: https://github.com/stephenchen13/job-scraper
 careers.stackoverflow
 
